@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+Jam Sholat Alpha
+Author : susilonurcahyo@gmail.com
+
+Copyright 2020 Susilo Nurcahyo
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Credits :
+Adhan -  MIT License
+Bootstrap -  MIT License
+jQuery -  MIT License
+Moment js -  MIT License
+Moment-Hijri -  MIT License
+NoSleep -  MIT License
+open-iconic -  SIL OPEN FONT LICENSE Version 1.1 
+The Roboto Light Fonts -  Apache License, Version 2.0. 
+-->
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jam Sholat cantik untuk di meja."/>
+<meta property="og:site_name" content="Jam Sholat">
+<meta property="og:title" content="Jam Sholat" />
+<meta property="og:description" content="Jam Sholat cantik untuk di meja." />
+<meta property="og:type" content="website" />
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" sizes="57x57" href="media/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="media/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="media/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="media/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="media/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="media/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="media/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="media/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="media/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="media/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="media/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+<link rel="manifest" href="manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="media/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<title>Jam Sholat</title>
+
+<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="container-fluid">
+<div id="header">
+	<span id="daydate-wrapper"><span id="day-display" class="date-display"></span>, <span id="date-display" class="date-display"></span></span>
+	<span id="time-display">00:00</span> <span id="second-display">00</span> <span id="timezone-gmt"></span>
+</div>
+<div id="hadist-content">	
+	
+</div>
+<!-- Jam Sholat Landscape Mode -->
+<div class="jamsholat row ml-1 hide-on-portrait">
+	<div class="col-sm waktu-sholat">
+		<span class="label">Subuh</span>
+		<div class="waktu subuh">00:00</div>
+	</div>
+	<div class="col-sm waktu-sholat d-none d-lg-block">
+		<span class="label">Terbit</span>
+		<div class="waktu terbit">00:00</div>
+	</div>
+	<div class="col-sm waktu-sholat">
+		<span class="label">Dzuhur</span>
+		<div class="waktu dzuhur">00:00</div>
+	</div>
+	<div class="col-sm waktu-sholat">
+		<span class="label">Ashar</span>
+		<div class="waktu ashar">00:00</div>
+	</div>
+	<div class="col-sm waktu-sholat">
+		<span class="label">Magrib</span>
+		<div class="waktu maghrib">00:00</div>
+	</div>
+	<div class="col-sm waktu-sholat">
+		<span class="label">Isya</span>
+		<div class="waktu isya">00:00</div>
+	</div>
+</div>
+<!-- Jam Sholat Portrait Mode -->
+<div class="jamsholat row hide-on-landscape">
+	<div class="row col-12 waktu-sholat">
+		<div class="col-7 label">Subuh</div> <div class="col-5 waktu subuh">00:00</div>
+	</div>
+	<div class="row col-12 waktu-sholat">		
+		<div class="col-7 label">Terbit</div> <div class="col-5 waktu terbit">00:00</div>
+	</div>
+	<div class="row col-12 waktu-sholat">		
+		<div class="col-7 label">Dzuhur</div> <div class="col-5 waktu dzuhur">00:00</div>
+	</div>
+	<div class="row col-12 waktu-sholat">		
+		<div class="col-7 label">Ashar</div> <div class="col-5 waktu ashar">00:00</div>
+	</div>
+	<div class="row col-12 waktu-sholat">
+		<div class="col-7 label">Magrib</div> <div class="col-5 waktu maghrib">00:00</div>
+	</div>
+	<div class="row col-12 waktu-sholat">		
+		<div class="col-7 label">Isya</div> <div class="col-5 waktu isya">00:00</div>
+	</div>
+</div>
+
+<div id="settings-icon">
+	<a href="#" class="toggle-config"><img src="vendor/open-iconic/cog.svg" alt="Settings" width="24px" style="padding-right: 5px;"></a>	
+	<span id="locationAddress"></span>
+</div>
+
+<!-- Configuration -->
+<div class="configuration-menu">
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	  <li class="nav-item">
+	    <a class="nav-link toggle-config" id="close-tab" data-toggle="tab" href="#close" role="tab" aria-controls="close" aria-selected="true"><</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Settings</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="false">About</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" id="help-tab" data-toggle="tab" href="#help" role="tab" aria-controls="help" aria-selected="false">Donation</a>
+	  </li>
+	</ul>
+
+	<div class="tab-content" id="myTabContent">
+	  <div class="tab-pane fade show active p-3" id="home" role="tabpanel" aria-labelledby="home-tab">
+		<!-- configuration -->
+	<form>
+	  <div class="row p-3">
+	  	<button type="button" class="btn btn-info toggle-fullscreen">Full Screen</button>         
+        <button type="button" class="btn btn-info toggle-orientation ml-1">Landscape</button>	        
+	  </div>
+	  <div class="form-group row">
+	    <label for="inputLocation" class="col-sm-4 col-form-label">Lokasi (lat, long)</label>
+	    <div class="col-sm-8">
+	    	<div class="input-group">
+		      <input type="text" class="form-control" id="inputLocation" placeholder="Location">
+		      <div class="input-group-append">
+		          <button type="button" class="btn btn-info input-group-text" id="getLocation"><small>Baca GPS</small></button>
+		        </div>
+		  </div>
+	    </div>
+	  </div>
+	  <div class="form-group row">
+	    <label for="inputLocation" class="col-sm-4 col-form-label">Metode Kalkulasi</label>
+	    <div class="col-sm-8">
+	        <select class="form-control" id="inputCalculation">
+		      <option value="0">Egyptian</option>
+		      <option value="1">Muslim World League</option>	      
+		      <option value="2">Karachi</option>
+		      <option value="3">Umm Al Qura</option>
+		      <option value="4">Singapore</option>
+		      <option value="5">North America</option>
+		      <option value="6">Dubai</option>
+		      <option value="7">Qatar</option>
+		      <option value="8">Kuwait</option>
+		      <option value="9">Moonsighting Committee</option>
+		    </select>
+	    </div>
+	  </div>
+	  <fieldset class="form-group">
+	    <div class="row">
+	      <legend class="col-form-label col-sm-4 pt-0">Waktu Ashar</legend>
+	      <div class="col-sm-4">
+	        <div class="form-check">
+	          <input class="form-check-input" type="radio" name="inputMadhab" id="inputSafii" value="safii">
+	          <label class="form-check-label" for="gridRadios1">
+	            Syafii
+	          </label>
+	        </div>
+	    </div>
+	    <div class="col-sm-4">
+	        <div class="form-check">
+	          <input class="form-check-input" type="radio" name="inputMadhab" id="inputHanafi" value="hanafi">
+	          <label class="form-check-label" for="gridRadios2">
+	            Hanafi
+	          </label>
+	        </div>
+	      </div>
+	    </div>
+	  </fieldset>
+	  <div class="form-group row">
+	    <label for="inputAngle" class="col-sm-4 col-form-label">Kemiringan Matahari (derajat)</label>
+	    <div class="col-sm-4">
+	    	<div class="input-group">
+	    		<div class="input-group-prepend">
+		          <span class="input-group-text"><small>Subuh</small></span>
+		        </div>
+	      		<input type="number" class="form-control" id="inputFajrAngle" placeholder="Subuh">      
+	      		<div class="input-group-append">
+		          <span class="input-group-text"><small>o</small></span>
+		        </div>
+	      	</div>
+	    </div>
+	    <div class="col-sm-4">
+	    	<div class="input-group">
+	    		<div class="input-group-prepend">
+		          <span class="input-group-text"><small>Isya</small></span>
+		        </div>
+			      <input type="number" class="form-control" id="inputIshaAngle" placeholder="Isya">    
+			      <div class="input-group-append">
+		          <span class="input-group-text"><small>o</small></span>
+		        </div>  
+			  </div>
+	    </div>
+	  </div>
+	  <div class="form-group row">
+	    <label for="inputAdjustment" class="col-sm-4 col-form-label">Penyesuaian Waktu</label>
+	    <div class="col-sm-6">
+	      <div class="input-group">
+	      <input type="number" class="form-control" id="inputAdjustment" placeholder="Penyesuaian">
+	      <div class="input-group-append">
+	          <span class="input-group-text" id="inputGroupPrepend"><small>dalam menit, contoh 2 atau -2</small></span>
+	        </div>
+		  </div>
+	    </div>
+	  </div>
+	  <div class="form-group row">
+	    <label for="inputIqomahTime" class="col-sm-4 col-form-label">Waktu Iqomah</label>
+	    <div class="col-sm-5">
+	    	<div class="input-group">
+		      <input type="number" class="form-control" id="inputIqomahTime" placeholder="Iqomah">
+		      <div class="input-group-append">
+		          <span class="input-group-text" id="inputGroupPrepend"><small>menit setelah adzan</small></span>
+		        </div>
+		    </div>
+	    </div>
+	  </div>  
+	  <div class="form-group row" id="inputAlarm">
+	    <label for="inputAlarm" class="col-sm-4 col-form-label">Suara Alarm</label>
+	    <div class="col-sm-4">
+	    	<div class="input-group">
+		      <div class="input-group-prepend">
+		          <span class="input-group-text"><small>Adzan</small></span>
+		        </div>
+		      <select class="form-control" id="inputAdzhanAlarm">
+			      <option value="l">Long Beep</option>
+			      <option value="s">Short Beep</option>
+			      <option value="d">Double Beep</option>	      
+			      <option value="m">Multiple Beep</option>   
+		      </select>  
+		  </div>
+	    </div>
+	    <div class="col-sm-4">
+	      <div class="input-group">
+		      <div class="input-group-prepend">
+		          <span class="input-group-text"><small>Iqomah</small></span>
+		        </div>
+	      <select class="form-control" id="inputIqomahAlarm">
+	      	  <option value="m">Multiple Beep</option>   
+		      <option value="l">Long Beep</option>
+		      <option value="s">Short Beep</option>
+		      <option value="d">Double Beep</option>	      	      
+	      </select>    
+	      </div>  
+	    </div>
+	  </div>
+	  <div class="form-group row">
+	    <label for="inputAlwaysOn" class="col-sm-4 col-form-label">Layar Selalu Menyala</label>
+	    <div class="col-sm-5">
+	    	<div class="input-group">
+		      <select class="form-control" id="inputAlwaysOn">
+		      	  <option value="1">Aktif</option>   
+			      <option value="0">Tidak Aktif</option>      	      
+		      </select>  
+		    </div>
+	    </div>
+	  </div>  
+	  <div class="row p-3">
+	  	<button type="button" class="btn btn-warning btnReset">Reset</button>         
+        <button type="button" class="btn btn-primary btnSave ml-1">Save</button>	
+        <button type="button" class="btn btn-info toggle-config ml-1">Cancel</button>	
+	  </div>
+	</form>	  	
+
+	  </div>
+
+	  <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
+	  	<!-- about -->
+	  	<div class="p-3">
+	  		<b>Jam Sholat</b> <br>
+	  		v.0.1.1<br>
+	  		Copyright 2020 Susilo Nurcahyo - MIT License<br>
+	  		<br>
+	  		Any issues, information or other inquiries, please contact :<br>
+	  		Github : <br>	  		
+	  		Email : studiopiapia@gmail.com<br>
+	  		<hr>
+	  		Credits :<br>
+	  		Adhan -  MIT License<br>		
+	  		Bootstrap -  MIT License<br>	
+	  		jQuery -  MIT License<br>			
+	  		Moment js -  MIT License<br>		
+	  		Moment-Hijri -  MIT License<br>							
+	  		NoSleep -  MIT License<br>			
+	  		open-iconic -  SIL OPEN FONT LICENSE Version 1.1 <br>
+			The Roboto Light Fonts -  Apache License, Version 2.0. <br>			
+		</div>
+	  </div>
+
+	  <div class="tab-pane fade" id="help" role="tabpanel" aria-labelledby="help-tab">
+	  	<div class="p-3">
+	  		Please support your locals muslim community.
+	  	</div>
+	  </div>
+	</div>
+</div>
+
+<!-- First Use -->
+<div class="first-use-container"></div>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/moment/moment-with-locales.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/adhan/Adhan.js"></script>
+<script src="vendor/moment-hijri/moment-hijri.js"></script>
+<script src="vendor/nosleep/NoSleep.min.js"></script>
+<script src="js/function.js"></script>
+
+<script type="text/javascript">
+	// configurables
+	var locale, latlngdata, method, calculation, fajrAngle, ishaAngle, madhab, minuteadjustment, iqomahTime, alwaysOn, beepTimes, beepVolume, beepFrequency, beepType, beepDuration, locationAddress, tmpLocationAddress, firstUse=1;
+
+	var now, tomorrow, yesterday, tanggal, tanggalHijri, hari, timedifference, diffsign;
+
+	var prayerTimes, fajrTime, sunriseTime, dhuhrTime, asrTime, maghribTime, ishaTime, current, currentPrayerTime, next, nextPrayerTime, secBefore, secAfter, warningBeforeAdhan;	
+
+	var noSleep = new NoSleep();	
+
+	$( document ).ready(function() {		
+		init();
+		
+		// the every second looper 
+		setInterval(function(){ 
+			now = new Date(); // update time
+			tomorrow.setDate(now.getDate() + 1);
+			tomorrow.setHours(1); // used in tomorrow fajr as next praying
+			yesterday.setDate(tomorrow.getDate() - 1);
+			yesterday.setHours(23); // used in yesterday isha as current praying
+
+			if (prayerTimes.date.getDate() != now.getDate()) {
+				// date changed, reload prayer time
+				setPrayerTimes(latlngdata);
+			}
+
+			setSecondBeforeAfter(); // determine before next and after current praying in seconds
+
+			setTimeDisplay(); // time ticker
+
+			setTimeEvent(secBefore, secAfter); // set event based on timer
+		}, 1000);
+
+		$("#getLocation").on("click", function() {
+			getLocation();
+		});
+
+		$("#inputAlarm").on("change", "select", function() {
+			// play selected beep			
+			playBeep($(this).val());
+		});
+
+		$(".btnSave").on("click", function() {
+			// save configuration
+			saveSettings();
+		});		
+
+		$(".btnReset").on("click", function() {
+			// reset configuration
+			localStorage.clear();
+			loadSettings();
+		});		
+
+		$(".toggle-config").on("click", function() {			
+			if ($(".configuration-menu").css("left") == "0px") {
+				$(".configuration-menu").scrollTop("0px");
+				$(".configuration-menu").removeClass("configuration-menu-open");
+				$(".configuration-menu").addClass("configuration-menu-close");
+			} else {
+				$('.nav-tabs a[href="#home"]').tab('show');
+				$(".configuration-menu").removeClass("configuration-menu-close");
+				$(".configuration-menu").addClass("configuration-menu-open");
+			}			
+		});		
+
+		$("body").on("click", ".toggle-fullscreen", function() {
+			if( window.innerHeight == screen.height) {
+			    // browser is fullscreen
+			    if (document.exitFullscreen) {
+				    document.exitFullscreen();
+				  } else if (document.mozCancelFullScreen) { /* Firefox */
+				    document.mozCancelFullScreen();
+				  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+				    document.webkitExitFullscreen();
+				  } else if (document.msExitFullscreen) { /* IE/Edge */
+				    document.msExitFullscreen();
+				  }
+				  $(".toggle-fullscreen").text("Full Screen");
+			} else {
+				const container= document.querySelector('.container-fluid');
+			    const rfs = container.requestFullscreen || container.webkitRequestFullScreen || container.mozRequestFullScreen || container.msRequestFullscreen;
+			    rfs.call(container);
+			    $(".toggle-fullscreen").text("Exit Full Screen");
+			}
+		});
+
+		$("body").on("click", ".toggle-orientation", function() {			
+			screen.orientation.lock("landscape")
+			.catch(function(error) {
+				alert(error);
+			});
+		});
+	});
+	
+//localStorage.clear();
+</script>
+<script> 
+	if ('serviceWorker' in navigator) {    
+		console.log("Will the service worker register?");    
+		navigator.serviceWorker.register('service-worker.js')
+      .then(function(reg){        
+      	console.log("Yes, it did.");     
+      }).catch(function(err) {        
+      	console.log("No it didn't. This happened:", err)    
+      });
+
+ }</script>
+</body>
+
+</html>
