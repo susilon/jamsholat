@@ -15,9 +15,12 @@ function init() {
 
 	now = new Date();
 	tomorrow = new Date();
-	tomorrow.setDate(tomorrow.getDate() + 1);
 	yesterday = new Date();
+	tomorrow.setDate(now.getDate() + 1);
+	tomorrow.setHours(1); // used in tomorrow fajr as next praying
 	yesterday.setDate(tomorrow.getDate() - 1);
+	yesterday.setHours(23); // used in yesterday isha as current praying
+
 	tanggal = moment().format('D MMMM YYYY');
 	tanggalHijri = moment().format('iD iMMMM iYYYY');
 	hari = moment().format('dddd');	
@@ -95,6 +98,7 @@ function setPrayerTimes(latlngdata) {
 	asrTime = moment(prayerTimes.asr).format('HH:mm');
 	maghribTime = moment(prayerTimes.maghrib).format('HH:mm');
 	ishaTime = moment(prayerTimes.isha).format('HH:mm');
+	
 	current = prayerTimes.currentPrayer();		
 	next = prayerTimes.nextPrayer();
 
@@ -134,6 +138,29 @@ function setPrayerTimes(latlngdata) {
 }
 
 function setSecondBeforeAfter() {
+	current = prayerTimes.currentPrayer();		
+	next = prayerTimes.nextPrayer();
+
+	if (current == "none") {
+		// current is yesterday isha
+		var yeterdayPrayerTimes = new adhan.PrayerTimes(coordinates, yesterday, params);	
+		current = yeterdayPrayerTimes.nextPrayer();
+		currentPrayerTime = yeterdayPrayerTimes.timeForPrayer(next);	
+		//current = "isha";
+	} else {
+		currentPrayerTime = prayerTimes.timeForPrayer(current);
+	}
+
+	if (next == "none") {
+		// next is tomorrow fajr
+		var tomorrowPrayerTimes = new adhan.PrayerTimes(coordinates, tomorrow, params);	
+		next = tomorrowPrayerTimes.nextPrayer();
+		nextPrayerTime = tomorrowPrayerTimes.timeForPrayer(next);	
+		//next = "fajr";	
+	} else {			
+		nextPrayerTime = prayerTimes.timeForPrayer(next);			
+	}	
+	
 	if (nextPrayerTime != null) {	
 		duration = moment(nextPrayerTime).diff(now);	
 		secBefore = Math.round(moment.duration(duration)/1000);		
